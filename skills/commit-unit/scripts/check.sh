@@ -17,7 +17,7 @@ report() {
 # This script's own pattern would match itself wherever it is committed.
 staged=$(git -C "$REPO" diff --cached -- . ':(exclude,glob)**/commit-unit/scripts/check.sh')
 report "home path in staged diff:" "$(grep -nE '^\+.*/(home|Users)/[A-Za-z0-9_.-]+/' <<<"$staged")"
-report "attribution in staged diff:" "$(grep -inE "^\+.*($ATTR)" <<<"$staged")"
+report "attribution in staged diff:" "$(grep -E '^\+' <<<"$staged" | cut -c2- | grep -inE "$ATTR")"
 report "attribution in last $COUNT messages:" "$(git -C "$REPO" log -"$COUNT" --format='%h %B' 2>/dev/null | grep -inE "$ATTR")"
 
 exit $failed

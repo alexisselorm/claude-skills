@@ -1,13 +1,12 @@
-# Testing a unit in a dirty tree
+# Testing in a dirty tree
 
 Use when someone else's half-finished work stops the suite from collecting. A detached
-worktree at HEAD plus your files is exactly what the commit will contain:
+worktree at HEAD holds exactly your committed units:
 
 ```bash
 WT=$(mktemp -d)/wt
 git worktree add --detach --quiet "$WT" HEAD
 # copy in gitignored files the suite needs to boot, e.g. cp -p .env "$WT/.env"
-for f in <your files>; do cp -p "$f" "$WT/$f"; done
 ( cd "$WT" && <the repo's test command> )
 git worktree remove --force "$WT"; git worktree prune
 ```

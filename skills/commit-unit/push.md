@@ -1,6 +1,7 @@
 # Pushing
 
-Only when the user asks. Run `scripts/check.sh` first, then:
+Only when the user asks. Finish "Verify once, at the end" in `SKILL.md` and run
+`scripts/check.sh` first, then:
 
 ```bash
 GIT_TERMINAL_PROMPT=0 git push origin <branch>

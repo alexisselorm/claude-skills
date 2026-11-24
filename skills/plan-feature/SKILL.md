@@ -63,6 +63,8 @@ If the Agent tool isn't available, do both yourself, exploration first.
 
 Follow the repo's existing plans if it has any, else `anatomy.md`. Design rules:
 
+- Explain how it works before slicing it: the plan's Design section gives the mechanism and
+  the alternatives rejected, with reasons. Workstreams say where; Design says how.
 - Reuse the existing pattern; name it with its anchor and describe only the delta.
 - Each workstream ships alone and states its off-nominal path.
 - Market findings change workstreams. Where research changed one, the workstream says so. If

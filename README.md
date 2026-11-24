@@ -6,7 +6,7 @@ Claude Code skills for day-to-day engineering work in any repo.
 |---|---|
 | `commit-unit` | Works on a `<type>/<slug>` branch and commits each coherent unit as it lands, then runs the full test suite and checks once at the end and fixes what fails. Stages by path, writes conventional messages, never adds trailers or attribution. |
 | `code-review` | Runs parallel reviewer personas (correctness, security, tests, code quality, plus performance when relevant) over a diff and merges their findings into one severity-grouped report. Never edits. |
-| `plan-feature` | Explores the repo for real extension points and researches how the market solves the problem, in parallel, then writes one plan doc where every claim is a verified `path:line` or a cited source. |
+| `plan-feature` | Explores the repo for real extension points and researches how the market solves the problem, in parallel, then writes one plan doc that explains how the feature works and which alternatives it rejected, where every claim is a verified `path:line` or a cited source. |
 
 ## Install
 

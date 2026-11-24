@@ -14,11 +14,12 @@ Status: **Drafted <YYYY-MM-DD>, <branch if any>, <what is left open>.**
 ## 3. Current state (verified)
 ## 4. How the market does it    # drop if research was not applicable
 ## 5. Principles
-## 6. Workstreams
+## 6. Design
+## 7. Workstreams
 ### WS1 — <name>
-## 7. Sequencing                # only when the order is not obvious
-## 8. Risks and open questions
-## 9. Out of scope
+## 8. Sequencing                # only when the order is not obvious
+## 9. Risks and open questions
+## 10. Out of scope
 ```
 
 ## Sections
@@ -44,9 +45,19 @@ Status: **Drafted <YYYY-MM-DD>, <branch if any>, <what is left open>.**
 - **Principles**: 3–6 numbered rules that outlive the workstreams, the reviewer's tool ("does
   this PR break principle 3?"). Shapes that work: *<source> is authoritative*, *no new user
   configuration*, *fail open, visibly*, *<client> reports facts, <server> decides*.
+- **Design**: how the feature works, before the slices cut it up. A short paragraph on the
+  mechanism (the data flow from trigger to stored result, where state lives, which existing
+  path it rides on), a flow sketch when more than three parts talk, and the alternatives:
+  ```
+  | Approach | Chosen? | Why / why not |
+  |---|---|---|
+  ```
+  Two or three real options, each rejected for a concrete reason (an anchor, a constraint,
+  a market finding), not a strawman. Cite the industry method it follows. No code.
 - **Workstreams**: one per independently shippable slice, ordered by value; if A can't ship
   without B, they are one workstream. Each opens with why it is in that position, then as
-  needed: **Changes** (file:line anchors per layer: backend, UI, client, schema), **Gating**
+  needed: **Changes** (file:line anchors per layer: backend, UI, client, schema), **Steps**
+  (build order when it isn't the obvious one, each step leaving the tree working), **Gating**
   (tier or flag), **Tests** (a list, not "add tests"), **Off-nominal** (stale, missing or partial
   data; fails open or closed, loud or silent).
 - **Sequencing**: only when the obvious order is wrong or one slice must land first. Name the
